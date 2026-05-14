@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ReadQuest">
+  <meta name="theme-color" content="#534AB7">
+  <title>ReadQuest - Level Up Your Reading</title>
+  
+  <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlJlYWRRdWVzdCIsCiAgInNob3J0X25hbWUiOiAiUmVhZFF1ZXN0IiwKICAic3RhcnRfdXJsIjogIi4iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmZmZmZmYiLAogICJ0aGVtZV9jb2xvciI6ICIjNTM0QUI3IiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxOTInIGhlaWdodD0nMTkyJyB2aWV3Qm94PScwIDAgMTkyIDE5Mic+JTNDcmVjdCB3aWR0aD0nMTkyJyBoZWlnaHQ9JzE5MicgZmlsbD0nJTIzNTM0QUI3Jy8+JTNDdGV4dCB4PSc1MCUyNScgeT0nNTAlMjUnIGZvbnQtc2l6ZT0nODAnIGZpbGw9JyUyM2ZmZicgdGV4dC1hbmNob3I9J21pZGRsZScgZG9taW5hbnQtYmFzZWxpbmU9J21pZGRsZSc+8J+TljwvdGV4dD4lM0Mvc3ZnPiIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+JTNDcmVjdCB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMicgZmlsbD0nJTIzNTM0QUI3Jy8+JTNDdGV4dCB4PSc1MCUyNScgeT0nNTAlMjUnIGZvbnQtc2l6ZT0nMjAwJyBmaWxsPSclMjNmZmYnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGRvbWluYW50LWJhc2VsaW5lPSdtaWRkbGUnPvCfk5Y8L3RleHQ+JTNDJTJGc3ZnPiIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
+  
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%23534AB7'/%3E%3Ctext x='50%25' y='50%25' font-size='80' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3E📖%3C/text%3E%3C/svg%3E">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    :root {
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f8f8f8;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #666666;
+      --color-text-tertiary: #999999;
+      --color-border-tertiary: rgba(0, 0, 0, 0.1);
+      --color-border-secondary: rgba(0, 0, 0, 0.2);
+      --color-background-info: #E6F1FB;
+      --color-text-info: #185FA5;
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-background-primary: #1a1a1a;
+        --color-background-secondary: #2a2a2a;
+        --color-text-primary: #ffffff;
+        --color-text-secondary: #a0a0a0;
+        --color-text-tertiary: #666666;
+        --color-border-tertiary: rgba(255, 255, 255, 0.1);
+        --color-border-secondary: rgba(255, 255, 255, 0.2);
+        --color-background-info: rgba(56, 138, 221, 0.15);
+        --color-text-info: #85B7EB;
+      }
+    }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
+      overscroll-behavior: none;
+    }
+    
+    .login-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .login-logo {
+      font-size: 64px;
+      margin-bottom: 1rem;
+    }
+    
+    .login-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .login-subtitle {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      margin-bottom: 3rem;
+    }
+    
+    .login-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 320px;
+    }
+    
+    .btn {
+      background: transparent;
+      border: 0.5px solid var(--color-border-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 12px 20px;
+      font-size: 15px;
+      cursor: pointer;
+      color: var(--color-text-primary);
+      font-weight: 500;
+      transition: all 0.2s;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .btn:active {
+      transform: scale(0.98);
+    }
+    
+    .btn-primary {
+      background: #534AB7;
+      color: white;
+      border-color: #534AB7;
+    }
+    
+    .btn-google {
+      background: white;
+      color: #1a1a1a;
+      border-color: var(--color-border-tertiary);
+    }
+    
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 1.5rem 0;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+    }
+    
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--color-border-tertiary);
+    }
+    
+    .email-form {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 320px;
+    }
+    
+    .email-form.active {
+      display: flex;
+    }
+    
+    .email-form input {
+      width: 100%;
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 12px 16px;
+      font-size: 15px;
+      color: var(--color-text-primary);
+      font-family: inherit;
+    }
+    
+    .email-form input:focus {
+      outline: none;
+      border-color: var(--color-border-secondary);
+    }
+    
+    .back-link {
+      margin-top: 1rem;
+      color: var(--color-text-info);
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .app {
+      display: none;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1rem;
+      padding-bottom: 2rem;
+    }
+    
+    .app.active {
+      display: block;
+    }
+    
+    .loading {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--color-text-secondary);
+    }
+    
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 1.5rem;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      position: sticky;
+      top: 0;
+      background: var(--color-background-primary);
+      z-index: 10;
+      padding-top: env(safe-area-inset-top);
+    }
+    
+    .tab {
+      background: transparent;
+      border: none;
+      padding: 10px 16px;
+      font-size: 15px;
+      cursor: pointer;
+      color: var(--color-text-secondary);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      font-weight: 400;
+      flex: 1;
+      text-align: center;
+    }
+    
+    .tab.active {
+      color: var(--color-text-primary);
+      border-bottom-color: var(--color-text-primary);
+      font-weight: 500;
+    }
+    
+    .tab:active {
+      transform: scale(0.95);
+    }
+    
+    .xp-card {
+      background: linear-gradient(135deg, #534AB7 0%, #7F77DD 100%);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .xp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .level-badge {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .xp-total {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    
+    .xp-label {
+      font-size: 13px;
+      opacity: 0.85;
+    }
+    
+    .xp-bar {
+      background: rgba(255,255,255,0.2);
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    
+    .xp-fill {
+      background: white;
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+    
+    .xp-next {
+      font-size: 12px;
+      opacity: 0.85;
+      margin-top: 6px;
+      text-align: right;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .stat-card {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 0.875rem;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+    }
+    
+    .logger {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .logger h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .input-group {
+      margin-bottom: 1rem;
+    }
+    
+    .input-group label {
+      display: block;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-bottom: 6px;
+    }
+    
+    .input-group input {
+      width: 100%;
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 12px;
+      font-size: 15px;
+      color: var(--color-text-primary);
+      font-family: inherit;
+    }
+    
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--color-border-secondary);
+    }
+    
+    .leaderboard {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+    }
+    
+    .lb-entry {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 1.25rem;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+    
+    .lb-entry:last-child {
+      border-bottom: none;
+    }
+    
+    .lb-rank {
+      font-size: 16px;
+      font-weight: 500;
+      min-width: 28px;
+      color: var(--color-text-secondary);
+    }
+    
+    .lb-rank.top3 {
+      color: #BA7517;
+    }
+    
+    .lb-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-background-info);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--color-text-info);
+      flex-shrink: 0;
+    }
+    
+    .lb-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .lb-name {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 2px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .lb-level {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+    
+    .lb-xp {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    
+    .lb-you {
+      background: rgba(83, 74, 183, 0.05);
+    }
+    
+    .achievements {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .achievement {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1rem;
+      text-align: center;
+      opacity: 0.4;
+      transition: opacity 0.3s;
+    }
+    
+    .achievement.unlocked {
+      opacity: 1;
+    }
+    
+    .achievement-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .achievement-name {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    
+    .achievement-desc {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+    }
+    
+    .friend-code {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .friend-code-label {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-bottom: 6px;
+    }
+    
+    .friend-code-value {
+      font-size: 20px;
+      font-weight: 500;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+      -webkit-user-select: text;
+      user-select: text;
+    }
+    
+    .friend-input {
+      margin-top: 1rem;
+      display: flex;
+      gap: 8px;
+    }
+    
+    .friend-input input {
+      flex: 1;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--color-text-secondary);
+    }
+    
+    .empty-icon {
+      font-size: 48px;
+      opacity: 0.3;
+      margin-bottom: 1rem;
+    }
+    
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 1rem;
+    }
+    
+    .modal {
+      background: var(--color-background-primary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      max-width: 320px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .modal-icon {
+      font-size: 64px;
+      margin-bottom: 1rem;
+    }
+    
+    .modal-title {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .modal-text {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    
+    .confetti-piece {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #534AB7;
+    }
+    
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    .logout-btn {
+      margin-top: 2rem;
+      width: 100%;
+    }
+    
+    .book-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1rem 1.25rem;
+      margin-bottom: 12px;
+    }
+    
+    .book-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--color-text-primary);
+    }
+    
+    .book-stats {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+    
+    .book-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .session-item {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 12px 1rem;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .session-info {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .session-book {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .session-meta {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+    
+    .session-time {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    
+    .tree-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .tree-container:hover {
+      transform: scale(1.05);
+    }
+    
+    .tree-info {
+      font-size: 11px;
+      color: #3B6D11;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .friend-forest-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1rem;
+      margin-bottom: 12px;
+    }
+    
+    .friend-forest-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+    
+    .friend-forest-trees {
+      min-height: 120px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: linear-gradient(180deg, rgba(225, 245, 238, 0.3) 0%, rgba(192, 221, 151, 0.3) 100%);
+      border-radius: var(--border-radius-md);
+      padding: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Screen -->
+  <div class="login-screen" id="login-screen">
+    <div class="login-logo">📖</div>
+    <h1 class="login-title">ReadQuest</h1>
+    <p class="login-subtitle">Level up your reading journey</p>
+    
+    <div class="login-buttons" id="login-buttons">
+      <button class="btn btn-google" id="google-login">
+        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/><path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
+        Continue with Google
+      </button>
+      
+      <div class="divider">or</div>
+      
+      <button class="btn btn-primary" id="email-login-btn">Continue with Email</button>
+    </div>
+    
+    <form class="email-form" id="email-form">
+      <input type="email" id="email-input" placeholder="Enter your email" required />
+      <input type="password" id="password-input" placeholder="Enter password" required />
+      <button type="submit" class="btn btn-primary">Sign In</button>
+      <button type="button" class="btn" id="signup-btn">Create Account</button>
+      <a class="back-link" id="forgot-password-link" style="display: block; text-align: center; margin-top: 0.5rem;">Forgot password?</a>
+      <a class="back-link" id="back-link">← Back to login options</a>
+    </form>
+    
+    <form class="email-form" id="forgot-password-form">
+      <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1rem; text-align: center;">
+        Enter your email and we'll send you a link to reset your password
+      </p>
+      <input type="email" id="reset-email-input" placeholder="Enter your email" required />
+      <button type="submit" class="btn btn-primary">Send Reset Link</button>
+      <a class="back-link" id="back-to-login-link">← Back to sign in</a>
+    </form>
+    
+    <form class="email-form" id="reset-password-form">
+      <h2 style="font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; text-align: center;">Set New Password</h2>
+      <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 1rem; text-align: center;">
+        Enter your new password below
+      </p>
+      <input type="password" id="new-password-input" placeholder="New password (min 6 characters)" minlength="6" required />
+      <input type="password" id="confirm-password-input" placeholder="Confirm new password" minlength="6" required />
+      <button type="submit" class="btn btn-primary">Reset Password</button>
+    </form>
+  </div>
+  
+  <!-- Loading Screen -->
+  <div class="loading" id="loading" style="display: none;">
+    <div>Loading your quest...</div>
+  </div>
+
+  <!-- Main App -->
+  <div class="app" id="app">
+    <div class="tabs">
+      <button class="tab active" data-tab="quest">Quest</button>
+      <button class="tab" data-tab="forest">Forest</button>
+      <button class="tab" data-tab="history">History</button>
+      <button class="tab" data-tab="leaderboard">Ranks</button>
+      <button class="tab" data-tab="achievements">Badges</button>
+      <button class="tab" data-tab="profile">Profile</button>
+    </div>
+
+    <div class="tab-content" id="quest-tab">
+      <div class="xp-card">
+        <div class="xp-header">
+          <div class="level-badge">Level <span id="level">1</span></div>
+          <div style="text-align: right;">
+            <div style="font-size: 13px; opacity: 0.85; display: flex; align-items: center; gap: 4px; justify-content: flex-end;">
+              <i class="ti ti-flame" style="font-size: 16px;"></i>
+              <span id="streak">0</span> day streak
+            </div>
+          </div>
+        </div>
+        <div class="xp-total"><span id="xp">0</span> XP</div>
+        <div class="xp-label">Total experience</div>
+        <div class="xp-bar">
+          <div class="xp-fill" id="xp-fill" style="width: 0%"></div>
+        </div>
+        <div class="xp-next"><span id="xp-to-next">100</span> XP to level <span id="next-level">2</span></div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="total-minutes">0</div>
+          <div class="stat-label">Minutes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="total-sessions">0</div>
+          <div class="stat-label">Sessions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="books-count">0</div>
+          <div class="stat-label">Books</div>
+        </div>
+      </div>
+
+      <div class="logger">
+        <h3>Log reading session</h3>
+        <div class="input-group">
+          <label>Book title</label>
+          <input type="text" id="book-input" placeholder="What are you reading?" />
+        </div>
+        <div class="input-group">
+          <label>Minutes read</label>
+          <input type="number" id="minutes-input" value="15" min="1" />
+        </div>
+        <div class="input-group">
+          <label>Pages read (optional)</label>
+          <input type="number" id="pages-input" placeholder="e.g. 25" min="0" />
+        </div>
+        <button class="btn btn-primary" id="log-btn" style="width: 100%;">
+          <i class="ti ti-plus" style="font-size: 18px; vertical-align: -3px;"></i>
+          Log session
+        </button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="forest-tab" style="display: none;">
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 0.5rem;">Your reading forest</h3>
+        <p style="font-size: 13px; color: var(--color-text-secondary);">Every day you read, your trees grow. Keep your streak alive! 🌲</p>
+      </div>
+      
+      <div style="background: linear-gradient(180deg, #E1F5EE 0%, #C0DD97 100%); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <div>
+            <div style="font-size: 13px; color: #3B6D11; margin-bottom: 4px;">Current streak</div>
+            <div style="font-size: 28px; font-weight: 500; color: #27500A;">
+              <i class="ti ti-flame" style="font-size: 28px; color: #D85A30; vertical-align: -4px;"></i>
+              <span id="forest-streak">0</span> days
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 13px; color: #3B6D11; margin-bottom: 4px;">Active trees</div>
+            <div style="font-size: 28px; font-weight: 500; color: #27500A;" id="active-trees-count">0</div>
+          </div>
+        </div>
+        
+        <div id="user-forest" style="min-height: 180px; display: flex; align-items: flex-end; justify-content: center; gap: 12px; flex-wrap: wrap; padding: 1rem 0;">
+          <!-- Trees render here -->
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 1rem;">
+        <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 0.5rem;">Friends' forests</h3>
+        <p style="font-size: 13px; color: var(--color-text-secondary);">See how your friends are doing</p>
+      </div>
+      
+      <div id="friends-forests">
+        <!-- Friend forests render here -->
+      </div>
+    </div>
+
+    <div class="tab-content" id="history-tab" style="display: none;">
+      <div style="margin-bottom: 1rem;">
+        <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 0.5rem;">Your books</h3>
+        <p style="font-size: 13px; color: var(--color-text-secondary);">All the books you've logged</p>
+      </div>
+      <div id="books-list"></div>
+      
+      <div style="margin: 2rem 0 1rem;">
+        <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 0.5rem;">Recent sessions</h3>
+        <p style="font-size: 13px; color: var(--color-text-secondary);">Your last 20 reading sessions</p>
+      </div>
+      <div id="sessions-list"></div>
+    </div>
+
+    <div class="tab-content" id="leaderboard-tab" style="display: none;">
+      <div class="leaderboard" id="leaderboard">
+        <div class="empty-state">
+          <div class="empty-icon"><i class="ti ti-trophy"></i></div>
+          <div>Loading leaderboard...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="achievements-tab" style="display: none;">
+      <div class="achievements">
+        <div class="achievement" data-achievement="first-session">
+          <div class="achievement-icon">📖</div>
+          <div class="achievement-name">First page</div>
+          <div class="achievement-desc">Log your first session</div>
+        </div>
+        <div class="achievement" data-achievement="night-owl">
+          <div class="achievement-icon">🦉</div>
+          <div class="achievement-name">Night owl</div>
+          <div class="achievement-desc">Read past 10 PM</div>
+        </div>
+        <div class="achievement" data-achievement="marathon">
+          <div class="achievement-icon">🏃</div>
+          <div class="achievement-name">Marathon</div>
+          <div class="achievement-desc">Read 60+ minutes</div>
+        </div>
+        <div class="achievement" data-achievement="streak-7">
+          <div class="achievement-icon">🔥</div>
+          <div class="achievement-name">Week warrior</div>
+          <div class="achievement-desc">7 day streak</div>
+        </div>
+        <div class="achievement" data-achievement="early-bird">
+          <div class="achievement-icon">🌅</div>
+          <div class="achievement-name">Early bird</div>
+          <div class="achievement-desc">Read before 7 AM</div>
+        </div>
+        <div class="achievement" data-achievement="level-5">
+          <div class="achievement-icon">⭐</div>
+          <div class="achievement-name">Rising star</div>
+          <div class="achievement-desc">Reach level 5</div>
+        </div>
+        <div class="achievement" data-achievement="diverse">
+          <div class="achievement-icon">🌈</div>
+          <div class="achievement-name">Explorer</div>
+          <div class="achievement-desc">Read 5 books</div>
+        </div>
+        <div class="achievement" data-achievement="century">
+          <div class="achievement-icon">💯</div>
+          <div class="achievement-name">Century club</div>
+          <div class="achievement-desc">100 minutes total</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="profile-tab" style="display: none;">
+      <div class="friend-code">
+        <div class="friend-code-label">Your friend code</div>
+        <div class="friend-code-value" id="my-code">LOADING</div>
+      </div>
+      <div style="margin-bottom: 1.5rem;">
+        <label style="display: block; font-size: 13px; color: var(--color-text-secondary); margin-bottom: 6px;">Add friend</label>
+        <div class="friend-input">
+          <input type="text" id="friend-code-input" placeholder="Enter code" style="text-transform: uppercase;" maxlength="6" />
+          <button class="btn" id="add-friend-btn">Add</button>
+        </div>
+      </div>
+      <div id="friends-list"></div>
+      
+      <button class="btn logout-btn" id="logout-btn">
+        <i class="ti ti-logout"></i>
+        Sign Out
+      </button>
+      
+      <button class="btn" id="delete-account-btn" style="margin-top: 1rem; width: 100%; color: #E24B4A; border-color: #E24B4A;">
+        <i class="ti ti-trash"></i>
+        Delete Account
+      </button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-icon" id="modal-icon">🎉</div>
+      <div class="modal-title" id="modal-title">Level Up!</div>
+      <div class="modal-text" id="modal-text">You've reached level 2!</div>
+      <button class="btn btn-primary" onclick="closeModal()">Continue</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+    import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail, confirmPasswordReset, verifyPasswordResetCode } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+    import { getFirestore, doc, setDoc, getDoc, collection, query, orderBy, limit, getDocs, updateDoc, increment, onSnapshot, deleteDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCYdalSrHYNOnY07XDKz_Ni_Jaj8gWqQWQ",
+      authDomain: "read-quest-22ccc.firebaseapp.com",
+      projectId: "read-quest-22ccc",
+      storageBucket: "read-quest-22ccc.firebasestorage.app",
+      messagingSenderId: "1093721049736",
+      appId: "1:1093721049736:web:79894e6971f1e1c3356d3d",
+      measurementId: "G-0KZNSP6L9E"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    let currentUser = null;
+    let userData = {};
+    
+    // Check if this is a password reset link
+    const urlParams = new URLSearchParams(window.location.search);
+    const mode = urlParams.get('mode');
+    const oobCode = urlParams.get('oobCode');
+    
+    if (mode === 'resetPassword' && oobCode) {
+      handlePasswordReset(oobCode);
+    }
+    
+    async function handlePasswordReset(code) {
+      document.getElementById('login-screen').style.display = 'flex';
+      document.getElementById('login-buttons').style.display = 'none';
+      document.getElementById('reset-password-form').classList.add('active');
+      
+      // Verify the code is valid
+      try {
+        await verifyPasswordResetCode(auth, code);
+        
+        document.getElementById('reset-password-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const newPassword = document.getElementById('new-password-input').value;
+          const confirmPassword = document.getElementById('confirm-password-input').value;
+          
+          if (newPassword !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+          }
+          
+          if (newPassword.length < 6) {
+            alert('Password must be at least 6 characters');
+            return;
+          }
+          
+          try {
+            await confirmPasswordReset(auth, code, newPassword);
+            alert('Password reset successful! You can now sign in with your new password.');
+            window.location.href = window.location.pathname; // Remove query params and reload
+          } catch (error) {
+            alert('Error resetting password: ' + error.message);
+          }
+        });
+      } catch (error) {
+        alert('Invalid or expired reset link. Please request a new one.');
+        window.location.href = window.location.pathname;
+      }
+    }
+
+    function getXPForLevel(level) {
+      return Math.floor(100 * Math.pow(1.5, level - 1));
+    }
+
+    function calculateLevel(xp) {
+      let level = 1;
+      let totalXP = 0;
+      while (totalXP + getXPForLevel(level) <= xp) {
+        totalXP += getXPForLevel(level);
+        level++;
+      }
+      return { level, xpInLevel: xp - totalXP, xpForNext: getXPForLevel(level) };
+    }
+
+    function generateFriendCode() {
+      return Math.random().toString(36).substr(2, 6).toUpperCase();
+    }
+
+    // Auth listeners
+    document.getElementById('google-login').addEventListener('click', async () => {
+      const provider = new GoogleAuthProvider();
+      try {
+        await signInWithPopup(auth, provider);
+      } catch (error) {
+        alert('Login failed: ' + error.message);
+      }
+    });
+
+    document.getElementById('email-login-btn').addEventListener('click', () => {
+      document.getElementById('login-buttons').style.display = 'none';
+      document.getElementById('email-form').classList.add('active');
+    });
+
+    document.getElementById('back-link').addEventListener('click', () => {
+      document.getElementById('login-buttons').style.display = 'flex';
+      document.getElementById('email-form').classList.remove('active');
+    });
+
+    document.getElementById('email-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      const password = document.getElementById('password-input').value;
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        alert('Login failed: ' + error.message);
+      }
+    });
+
+    document.getElementById('signup-btn').addEventListener('click', async () => {
+      const email = document.getElementById('email-input').value;
+      const password = document.getElementById('password-input').value;
+      if (!email || !password) {
+        alert('Please enter email and password');
+        return;
+      }
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters');
+        return;
+      }
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        alert('Signup failed: ' + error.message);
+      }
+    });
+
+    document.getElementById('forgot-password-link').addEventListener('click', () => {
+      document.getElementById('email-form').classList.remove('active');
+      document.getElementById('forgot-password-form').classList.add('active');
+    });
+
+    document.getElementById('back-to-login-link').addEventListener('click', () => {
+      document.getElementById('forgot-password-form').classList.remove('active');
+      document.getElementById('email-form').classList.add('active');
+    });
+
+    document.getElementById('forgot-password-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('reset-email-input').value;
+      if (!email) {
+        alert('Please enter your email');
+        return;
+      }
+      try {
+        const actionCodeSettings = {
+          url: window.location.origin + window.location.pathname,
+          handleCodeInApp: true
+        };
+        await sendPasswordResetEmail(auth, email, actionCodeSettings);
+        alert('Password reset email sent! Check your inbox (and spam folder). Click the link in the email to reset your password.');
+        document.getElementById('reset-email-input').value = '';
+        document.getElementById('forgot-password-form').classList.remove('active');
+        document.getElementById('email-form').classList.add('active');
+      } catch (error) {
+        if (error.code === 'auth/user-not-found') {
+          alert('No account found with this email address.');
+        } else {
+          alert('Error: ' + error.message);
+        }
+      }
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', async () => {
+      if (confirm('Are you sure you want to sign out?')) {
+        await signOut(auth);
+      }
+    });
+
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        currentUser = user;
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('loading').style.display = 'flex';
+        
+        await initializeUser(user);
+        
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('app').classList.add('active');
+        
+        loadLeaderboard();
+      } else {
+        document.getElementById('login-screen').style.display = 'flex';
+        document.getElementById('app').classList.remove('active');
+        currentUser = null;
+      }
+    });
+
+    async function initializeUser(user) {
+      const userRef = doc(db, 'users', user.uid);
+      const userSnap = await getDoc(userRef);
+      
+      if (userSnap.exists()) {
+        userData = userSnap.data();
+      } else {
+        userData = {
+          uid: user.uid,
+          email: user.email,
+          username: user.displayName || user.email.split('@')[0],
+          friendCode: generateFriendCode(),
+          xp: 0,
+          level: 1,
+          streak: 0,
+          lastRead: null,
+          totalMinutes: 0,
+          sessions: [],
+          books: [],
+          friends: [],
+          achievements: [],
+          createdAt: Date.now()
+        };
+        await setDoc(userRef, userData);
+      }
+      
+      updateUI();
+    }
+
+    function getTreeSVG(stage, health) {
+      // stage: 1-7 (days in streak), health: 'healthy', 'wilting', 'dead'
+      const size = Math.min(40 + (stage * 5), 80);
+      
+      if (health === 'dead') {
+        // Dead stump
+        return `
+          <svg width="${size}" height="${size * 1.2}" viewBox="0 0 60 80" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+            <rect x="22" y="50" width="16" height="30" fill="#8B4513" rx="2"/>
+            <ellipse cx="30" cy="50" rx="18" ry="8" fill="#A0522D"/>
+            <line x1="24" y1="55" x2="36" y2="65" stroke="#654321" stroke-width="2"/>
+            <line x1="36" y1="55" x2="24" y2="65" stroke="#654321" stroke-width="2"/>
+          </svg>
+        `;
+      }
+      
+      if (health === 'wilting') {
+        // Wilting tree (yellow/brown leaves)
+        const trunkHeight = 30 + (stage * 3);
+        const crownSize = 20 + (stage * 2);
+        return `
+          <svg width="${size}" height="${size * 1.2}" viewBox="0 0 60 80" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+            <rect x="26" y="${80 - trunkHeight}" width="8" height="${trunkHeight}" fill="#8B7355" rx="2"/>
+            <ellipse cx="30" cy="${80 - trunkHeight - 5}" rx="${crownSize}" ry="${crownSize * 1.2}" fill="#D4A574"/>
+            <ellipse cx="22" cy="${80 - trunkHeight}" rx="${crownSize * 0.7}" ry="${crownSize * 0.9}" fill="#C19A6B"/>
+            <ellipse cx="38" cy="${80 - trunkHeight}" rx="${crownSize * 0.7}" ry="${crownSize * 0.9}" fill="#C19A6B"/>
+          </svg>
+        `;
+      }
+      
+      // Healthy growing tree
+      const trunkHeight = 30 + (stage * 3);
+      const crownSize = 20 + (stage * 2);
+      const leafShade = stage < 3 ? '#97C459' : stage < 5 ? '#639922' : '#3B6D11';
+      
+      if (stage <= 2) {
+        // Sprout/sapling
+        return `
+          <svg width="${size}" height="${size * 1.2}" viewBox="0 0 60 80" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+            <rect x="28" y="60" width="4" height="20" fill="#8B7355" rx="1"/>
+            <ellipse cx="30" cy="55" rx="12" ry="15" fill="#97C459"/>
+            <ellipse cx="24" cy="58" rx="8" ry="10" fill="#C0DD97"/>
+            <ellipse cx="36" cy="58" rx="8" ry="10" fill="#C0DD97"/>
+          </svg>
+        `;
+      }
+      
+      // Mature tree
+      return `
+        <svg width="${size}" height="${size * 1.2}" viewBox="0 0 60 80" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+          <rect x="26" y="${80 - trunkHeight}" width="8" height="${trunkHeight}" fill="#8B7355" rx="2"/>
+          <ellipse cx="30" cy="${80 - trunkHeight - 5}" rx="${crownSize}" ry="${crownSize * 1.2}" fill="${leafShade}"/>
+          <ellipse cx="22" cy="${80 - trunkHeight}" rx="${crownSize * 0.7}" ry="${crownSize * 0.9}" fill="#639922"/>
+          <ellipse cx="38" cy="${80 - trunkHeight}" rx="${crownSize * 0.7}" ry="${crownSize * 0.9}" fill="#639922"/>
+          ${stage >= 7 ? `<circle cx="25" cy="${80 - trunkHeight - 10}" r="3" fill="#FF6B6B"/>
+                          <circle cx="35" cy="${80 - trunkHeight - 8}" r="3" fill="#FF6B6B"/>` : ''}
+        </svg>
+      `;
+    }
+    
+    function calculateTreeHealth(lastReadDate, currentStreak) {
+      if (!lastReadDate) return { health: 'dead', stage: 0 };
+      
+      const today = new Date().toDateString();
+      const yesterday = new Date(Date.now() - 86400000).toDateString();
+      const lastRead = new Date(lastReadDate).toDateString();
+      
+      if (lastRead === today) {
+        return { health: 'healthy', stage: Math.min(currentStreak, 7) };
+      } else if (lastRead === yesterday) {
+        return { health: 'wilting', stage: Math.min(currentStreak, 7) };
+      } else {
+        return { health: 'dead', stage: Math.min(currentStreak, 7) };
+      }
+    }
+    
+    function renderForest() {
+      const userForestContainer = document.getElementById('user-forest');
+      const streak = userData.streak || 0;
+      const lastRead = userData.lastRead;
+      
+      document.getElementById('forest-streak').textContent = streak;
+      
+      if (streak === 0 && !lastRead) {
+        userForestContainer.innerHTML = `
+          <div style="text-align: center; padding: 2rem; color: var(--color-text-secondary);">
+            <div style="font-size: 48px; margin-bottom: 1rem;">🌱</div>
+            <div style="font-size: 14px;">Start reading to grow your first tree!</div>
+          </div>
+        `;
+        document.getElementById('active-trees-count').textContent = '0';
+        return;
+      }
+      
+      const { health, stage } = calculateTreeHealth(lastRead, streak);
+      
+      let statusText = '';
+      if (health === 'healthy') {
+        statusText = streak >= 7 ? 'Thriving!' : `Day ${streak}`;
+      } else if (health === 'wilting') {
+        statusText = 'Wilting! Read today';
+      } else {
+        statusText = 'Start a new tree';
+      }
+      
+      const treeSVG = getTreeSVG(stage, health);
+      
+      userForestContainer.innerHTML = `
+        <div class="tree-container">
+          ${treeSVG}
+          <div class="tree-info">${statusText}</div>
+        </div>
+      `;
+      
+      document.getElementById('active-trees-count').textContent = health !== 'dead' ? '1' : '0';
+      
+      // Render friends' forests
+      renderFriendsForests();
+    }
+    
+    async function renderFriendsForests() {
+      const container = document.getElementById('friends-forests');
+      const friends = userData.friends || [];
+      
+      if (friends.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state" style="padding: 2rem 1rem;">
+            <div class="empty-icon"><i class="ti ti-users"></i></div>
+            <div style="font-size: 14px; color: var(--color-text-secondary);">Add friends to see their forests</div>
+          </div>
+        `;
+        return;
+      }
+      
+      let html = '';
+      for (const friend of friends) {
+        try {
+          const friendData = await getDoc(doc(db, 'users', friend.userId));
+          if (friendData.exists()) {
+            const data = friendData.data();
+            const { health, stage } = calculateTreeHealth(data.lastRead, data.streak || 0);
+            const treeSVG = getTreeSVG(stage, health);
+            const initials = (friend.username || 'U').substring(0, 2).toUpperCase();
+            
+            let statusEmoji = '🌲';
+            if (health === 'wilting') statusEmoji = '🍂';
+            if (health === 'dead') statusEmoji = '🪵';
+            
+            html += `
+              <div class="friend-forest-card">
+                <div class="friend-forest-header">
+                  <div class="lb-avatar">${initials}</div>
+                  <div style="flex: 1;">
+                    <div style="font-weight: 500; font-size: 14px;">${friend.username}</div>
+                    <div style="font-size: 12px; color: var(--color-text-secondary);">
+                      ${data.streak || 0} day streak ${statusEmoji}
+                    </div>
+                  </div>
+                </div>
+                <div class="friend-forest-trees">
+                  <div class="tree-container">
+                    ${treeSVG}
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        } catch (e) {
+          console.error('Error loading friend forest:', e);
+        }
+      }
+      
+      container.innerHTML = html;
+    }
+
+    function renderHistory() {
+      const sessions = userData.sessions || [];
+      
+      // Group sessions by book
+      const bookStats = {};
+      sessions.forEach(session => {
+        if (!bookStats[session.book]) {
+          bookStats[session.book] = { minutes: 0, pages: 0, sessions: 0 };
+        }
+        bookStats[session.book].minutes += session.minutes;
+        bookStats[session.book].pages += session.pages || 0;
+        bookStats[session.book].sessions++;
+      });
+      
+      // Render books list
+      const booksContainer = document.getElementById('books-list');
+      if (Object.keys(bookStats).length === 0) {
+        booksContainer.innerHTML = '<div class="empty-state" style="padding: 2rem 1rem;"><div style="font-size: 14px; color: var(--color-text-secondary);">No books logged yet. Start reading!</div></div>';
+      } else {
+        let booksHtml = '';
+        Object.entries(bookStats).forEach(([book, stats]) => {
+          booksHtml += `
+            <div class="book-card">
+              <div class="book-title">${book}</div>
+              <div class="book-stats">
+                <div class="book-stat">
+                  <i class="ti ti-clock" style="font-size: 16px;"></i>
+                  <span>${stats.minutes} min</span>
+                </div>
+                ${stats.pages > 0 ? `
+                <div class="book-stat">
+                  <i class="ti ti-book" style="font-size: 16px;"></i>
+                  <span>${stats.pages} pages</span>
+                </div>` : ''}
+                <div class="book-stat">
+                  <i class="ti ti-repeat" style="font-size: 16px;"></i>
+                  <span>${stats.sessions} sessions</span>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        booksContainer.innerHTML = booksHtml;
+      }
+      
+      // Render recent sessions
+      const sessionsContainer = document.getElementById('sessions-list');
+      if (sessions.length === 0) {
+        sessionsContainer.innerHTML = '<div class="empty-state" style="padding: 2rem 1rem;"><div style="font-size: 14px; color: var(--color-text-secondary);">No sessions yet</div></div>';
+      } else {
+        const recentSessions = [...sessions].reverse().slice(0, 20);
+        let sessionsHtml = '';
+        recentSessions.forEach(session => {
+          const date = new Date(session.timestamp);
+          const timeAgo = getTimeAgo(session.timestamp);
+          
+          sessionsHtml += `
+            <div class="session-item">
+              <div class="session-info">
+                <div class="session-book">${session.book}</div>
+                <div class="session-meta">
+                  ${session.minutes} min${session.pages ? ` · ${session.pages} pages` : ''} · ${timeAgo}
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        sessionsContainer.innerHTML = sessionsHtml;
+      }
+    }
+    
+    function getTimeAgo(timestamp) {
+      const seconds = Math.floor((Date.now() - timestamp) / 1000);
+      
+      if (seconds < 60) return 'just now';
+      if (seconds < 3600) return Math.floor(seconds / 60) + ' min ago';
+      if (seconds < 86400) return Math.floor(seconds / 3600) + ' hours ago';
+      if (seconds < 604800) return Math.floor(seconds / 86400) + ' days ago';
+      
+      const date = new Date(timestamp);
+      return date.toLocaleDateString();
+    }
+
+    function updateUI() {
+      const { level, xpInLevel, xpForNext } = calculateLevel(userData.xp);
+      const progress = Math.round((xpInLevel / xpForNext) * 100);
+      
+      document.getElementById('level').textContent = level;
+      document.getElementById('xp').textContent = userData.xp;
+      document.getElementById('streak').textContent = userData.streak || 0;
+      document.getElementById('xp-fill').style.width = progress + '%';
+      document.getElementById('xp-to-next').textContent = Math.round(xpForNext - xpInLevel);
+      document.getElementById('next-level').textContent = level + 1;
+      
+      document.getElementById('total-minutes').textContent = userData.totalMinutes || 0;
+      document.getElementById('total-sessions').textContent = userData.sessions?.length || 0;
+      document.getElementById('books-count').textContent = userData.books?.length || 0;
+      
+      document.getElementById('my-code').textContent = userData.friendCode || 'LOADING';
+      
+      (userData.achievements || []).forEach(id => {
+        const el = document.querySelector(`[data-achievement="${id}"]`);
+        if (el) el.classList.add('unlocked');
+      });
+      
+      updateFriendsList();
+      renderHistory();
+      renderForest();
+    }
+
+    async function logSession(book, minutes, pages) {
+      if (!book || minutes < 1) return;
+      
+      const session = {
+        book: book.trim(),
+        minutes: Math.round(minutes),
+        pages: pages ? Math.round(pages) : null,
+        timestamp: Date.now()
+      };
+      
+      const xpGain = minutes * 10;
+      const oldLevel = userData.level;
+      
+      const newXP = (userData.xp || 0) + xpGain;
+      const { level: newLevel } = calculateLevel(newXP);
+      
+      const today = new Date().toDateString();
+      const lastReadDate = userData.lastRead ? new Date(userData.lastRead).toDateString() : null;
+      
+      let newStreak = userData.streak || 0;
+      if (lastReadDate !== today) {
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        if (lastReadDate === yesterday || !lastReadDate) {
+          newStreak++;
+        } else {
+          newStreak = 1;
+        }
+      }
+      
+      const newSessions = [...(userData.sessions || []), session];
+      const newBooks = [...new Set([...(userData.books || []), book.trim()])];
+      
+      const userRef = doc(db, 'users', currentUser.uid);
+      await updateDoc(userRef, {
+        xp: newXP,
+        level: newLevel,
+        streak: newStreak,
+        lastRead: Date.now(),
+        totalMinutes: increment(minutes),
+        sessions: newSessions,
+        books: newBooks
+      });
+      
+      userData.xp = newXP;
+      userData.level = newLevel;
+      userData.streak = newStreak;
+      userData.lastRead = Date.now();
+      userData.totalMinutes = (userData.totalMinutes || 0) + minutes;
+      userData.sessions = newSessions;
+      userData.books = newBooks;
+      
+      checkAchievements(session);
+      updateUI();
+      
+      if (newLevel > oldLevel) {
+        showLevelUp(newLevel);
+        triggerConfetti();
+      } else {
+        showXPGain(xpGain);
+      }
+    }
+
+    function checkAchievements(session) {
+      const hour = new Date(session.timestamp).getHours();
+      const achievements = userData.achievements || [];
+      
+      const unlock = async (id, name, desc) => {
+        if (achievements.includes(id)) return;
+        achievements.push(id);
+        await updateDoc(doc(db, 'users', currentUser.uid), { achievements });
+        userData.achievements = achievements;
+        const el = document.querySelector(`[data-achievement="${id}"]`);
+        if (el) el.classList.add('unlocked');
+        showModal('🎉', name, desc);
+      };
+      
+      if (userData.sessions.length === 1) {
+        unlock('first-session', 'First page', 'You logged your first reading session!');
+      }
+      
+      if (hour >= 22) unlock('night-owl', 'Night owl', 'You read past 10 PM!');
+      if (hour < 7) unlock('early-bird', 'Early bird', 'You read before 7 AM!');
+      if (session.minutes >= 60) unlock('marathon', 'Marathon', 'You read for 60+ minutes!');
+      if (userData.streak >= 7) unlock('streak-7', 'Week warrior', 'You have a 7 day streak!');
+      if (userData.level >= 5) unlock('level-5', 'Rising star', 'You reached level 5!');
+      if (userData.books?.length >= 5) unlock('diverse', 'Explorer', 'You read 5 different books!');
+      if (userData.totalMinutes >= 100) unlock('century', 'Century club', 'You read 100 total minutes!');
+    }
+
+    async function loadLeaderboard() {
+      const q = query(collection(db, 'users'), orderBy('xp', 'desc'), limit(50));
+      const snapshot = await getDocs(q);
+      
+      let html = '';
+      snapshot.forEach((doc, i) => {
+        const user = doc.data();
+        const isYou = doc.id === currentUser.uid;
+        const rank = i + 1;
+        const initials = (user.username || 'U').substring(0, 2).toUpperCase();
+        
+        html += `
+          <div class="lb-entry ${isYou ? 'lb-you' : ''}">
+            <div class="lb-rank ${rank <= 3 ? 'top3' : ''}">${rank}</div>
+            <div class="lb-avatar">${initials}</div>
+            <div class="lb-info">
+              <div class="lb-name">${user.username || 'User'}${isYou ? ' (You)' : ''}</div>
+              <div class="lb-level">Level ${user.level || 1}</div>
+            </div>
+            <div class="lb-xp">${user.xp || 0}</div>
+          </div>
+        `;
+      });
+      
+      document.getElementById('leaderboard').innerHTML = html;
+    }
+
+    function updateFriendsList() {
+      const container = document.getElementById('friends-list');
+      const friends = userData.friends || [];
+      
+      if (friends.length === 0) {
+        container.innerHTML = '<div class="empty-state" style="padding: 2rem 1rem;"><div style="font-size: 14px; color: var(--color-text-secondary);">No friends added yet</div></div>';
+        return;
+      }
+      
+      let html = '<div style="display: flex; flex-direction: column; gap: 8px;">';
+      friends.forEach(friend => {
+        const initials = (friend.username || 'U').substring(0, 2).toUpperCase();
+        html += `
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px; display: flex; align-items: center; gap: 12px;">
+            <div class="lb-avatar">${initials}</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 500; font-size: 14px;">${friend.username || 'User'}</div>
+              <div style="font-size: 12px; color: var(--color-text-secondary);">Level ${friend.level || 1} · ${friend.xp || 0} XP</div>
+            </div>
+          </div>
+        `;
+      });
+      html += '</div>';
+      
+      container.innerHTML = html;
+    }
+
+    async function addFriend() {
+      const input = document.getElementById('friend-code-input');
+      const code = input.value.trim().toUpperCase();
+      
+      if (!code || code.length !== 6) {
+        alert('Please enter a valid 6-character friend code');
+        return;
+      }
+      
+      if (code === userData.friendCode) {
+        alert("That's your own code!");
+        return;
+      }
+      
+      if ((userData.friends || []).some(f => f.friendCode === code)) {
+        alert('Already friends with this user');
+        return;
+      }
+      
+      const q = query(collection(db, 'users'));
+      const snapshot = await getDocs(q);
+      
+      let found = false;
+      snapshot.forEach((doc) => {
+        const user = doc.data();
+        if (user.friendCode === code) {
+          found = true;
+          const newFriends = [...(userData.friends || []), {
+            uid: doc.id,
+            username: user.username,
+            friendCode: user.friendCode,
+            xp: user.xp,
+            level: user.level
+          }];
+          
+          updateDoc(doc(db, 'users', currentUser.uid), { friends: newFriends });
+          userData.friends = newFriends;
+          updateFriendsList();
+          input.value = '';
+          showModal('🤝', 'Friend added!', `${user.username} is now your reading buddy`);
+        }
+      });
+      
+      if (!found) {
+        alert('Friend code not found');
+      }
+    }
+
+    function triggerConfetti() {
+      const container = document.createElement('div');
+      container.className = 'confetti';
+      document.body.appendChild(container);
+      
+      const colors = ['#534AB7', '#7F77DD', '#1D9E75', '#D85A30', '#D4537E'];
+      
+      for (let i = 0; i < 50; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animation = `confetti-fall ${2 + Math.random()}s ease-out forwards`;
+        container.appendChild(piece);
+      }
+      
+      setTimeout(() => container.remove(), 3000);
+    }
+
+    function showLevelUp(level) {
+      document.getElementById('modal-icon').textContent = '⭐';
+      document.getElementById('modal-title').textContent = 'Level Up!';
+      document.getElementById('modal-text').textContent = `You've reached level ${level}!`;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function showXPGain(xp) {
+      document.getElementById('modal-icon').textContent = '✨';
+      document.getElementById('modal-title').textContent = 'XP Gained!';
+      document.getElementById('modal-text').textContent = `+${Math.round(xp)} XP earned from this session`;
+      document.getElementById('modal').style.display = 'flex';
+      setTimeout(() => closeModal(), 1500);
+    }
+
+    function showModal(icon, title, text) {
+      document.getElementById('modal-icon').textContent = icon;
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-text').textContent = text;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    window.closeModal = function() {
+      document.getElementById('modal').style.display = 'none';
+    };
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        const target = tab.dataset.tab;
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.style.display = content.id === target + '-tab' ? 'block' : 'none';
+        });
+      });
+    });
+
+    document.getElementById('log-btn').addEventListener('click', async () => {
+      const book = document.getElementById('book-input').value;
+      const minutes = parseInt(document.getElementById('minutes-input').value);
+      const pages = parseInt(document.getElementById('pages-input').value) || 0;
+      
+      if (!book) {
+        alert('Please enter a book title');
+        return;
+      }
+      
+      await logSession(book, minutes, pages);
+      document.getElementById('book-input').value = '';
+      document.getElementById('minutes-input').value = '15';
+      document.getElementById('pages-input').value = '';
+    });
+
+    document.getElementById('add-friend-btn').addEventListener('click', addFriend);
+    document.getElementById('friend-code-input').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') addFriend();
+    });
+    
+    document.getElementById('delete-account-btn').addEventListener('click', async () => {
+      const confirm1 = confirm('Are you sure you want to delete your account? This action cannot be undone.');
+      if (!confirm1) return;
+      
+      const confirm2 = confirm('This will permanently delete all your reading data, XP, achievements, and progress. Are you absolutely sure?');
+      if (!confirm2) return;
+      
+      try {
+        // Delete user data from Firestore
+        await deleteDoc(doc(db, 'users', currentUser.uid));
+        
+        // Delete Firebase Auth account
+        await currentUser.delete();
+        
+        alert('Your account has been deleted successfully.');
+        
+        // Redirect to login
+        window.location.reload();
+      } catch (error) {
+        if (error.code === 'auth/requires-recent-login') {
+          alert('For security, you need to sign in again before deleting your account. Please sign out and sign back in, then try again.');
+        } else {
+          alert('Error deleting account: ' + error.message);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
